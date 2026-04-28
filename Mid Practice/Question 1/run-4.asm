@@ -1,0 +1,25 @@
+.MODEL SMALL
+.STACK 100H
+.DATA
+  MSG DB "BAUET","$"
+
+.CODE
+PROC MAIN
+ MOV AX,@DATA;
+ MOV DS, AX;
+ 
+ MOV CX,09H;
+
+PRINT_LOOP:
+ LEA DX, MSG;
+ MOV AH, 09h;
+ INT 21H;    
+ 
+ LOOP PRINT_LOOP;
+ 
+ MOV AX, 4CH;
+ INT 21h;
+        
+        
+MAIN ENDP
+END MAIN

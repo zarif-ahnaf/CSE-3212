@@ -1,0 +1,27 @@
+.MODEL SMALL
+.STACK 100
+
+              
+ .DATA
+   MSG DB "BAUETCSE","$"
+ 
+ .CODE
+MAIN PROC
+  MOV AX, @DATA
+  MOV DS, AX
+  
+  MOV CX, 9
+  
+PRINT_LOOP:
+  LEA DX,MSG
+  MOV AH, 09H
+  INT 21H
+  
+  LOOP PRINT_LOOP
+  
+  MOV AH, 4CH
+  INT 21H
+
+    
+MAIN ENDP
+END MAIN
