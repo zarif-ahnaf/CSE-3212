@@ -1,3 +1,5 @@
+; Smart boy 2 digit adder
+
 .MODEL SMALL
 .STACK 100H
 .DATA

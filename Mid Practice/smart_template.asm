@@ -1,3 +1,4 @@
+; Smart boy loop starter
 .MODEL SMALL
 .STACK 100H
 
@@ -15,7 +16,7 @@ INNER_LOOP:
     CMP BX, 5;
     JE NEXT_LINE; 
     
-       
+    ; Code goes here       
     
     INC BX;
     

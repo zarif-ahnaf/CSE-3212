@@ -1,3 +1,4 @@
+; Junayed's code question 1
 .MODEL SMALL
 .STACK 100H
 
