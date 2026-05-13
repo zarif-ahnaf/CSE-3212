@@ -1,0 +1,46 @@
+.MODEL SMALL
+.STACK 100H
+
+.DATA
+    INPUT_VAL DW 1234
+    SUM_RES   DB ?
+    PROMPT    DB 'Sum of first and last digit is: $'
+
+.CODE
+START:
+    MOV AX, @DATA
+    MOV DS, AX
+
+    MOV AX, INPUT_VAL
+    
+    MOV BL, 10
+    DIV BL
+    MOV CL, AH
+    
+    MOV AX, INPUT_VAL
+
+FIND_FIRST:
+    CMP AX, 10
+    JB  DONE_LOOP
+    MOV DX, 0
+    MOV BX, 10
+    DIV BX
+    JMP FIND_FIRST
+
+DONE_LOOP:
+    ADD AL, CL
+    MOV SUM_RES, AL
+
+    LEA DX, PROMPT
+    MOV AH, 09H
+    INT 21H
+
+    MOV DL, SUM_RES
+    ADD DL, 48
+    MOV AH, 02H
+    INT 21H
+
+EXIT:
+    MOV AH, 4CH
+    INT 21H
+END START
